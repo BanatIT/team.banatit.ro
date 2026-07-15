@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Banat IT - Operational Team</title>
+<meta name="description" content="Applications open for the Operational Team, July 2026. 11 positions across events, design, ops.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #18122D;
+    --bg-elevated: #201A38;
+    --bg-card: #251E40;
+    --text: #F8FAFF;
+    --text-muted: #9893A9;
+    --text-dim: #6B6580;
+    --accent: #00FF00;
+    --accent-hover: #00E600;
+    --accent-glow: rgba(0, 255, 0, 0.15);
+    --danger: #FF2E00;
+    --border: rgba(152, 147, 169, 0.15);
+    --border-strong: rgba(152, 147, 169, 0.3);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(248, 250, 255, 0.08); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(248, 250, 255, 0.2); }
+  * { scrollbar-width: thin; scrollbar-color: rgba(248, 250, 255, 0.08) transparent; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  a:hover {
+    opacity: 0.75;
+  }
+
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92em;
+  }
+
+  /* --- Nav --- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(24, 18, 45, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+  }
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .nav-logo::before {
+    content: "▲";
+    color: var(--accent);
+    margin-right: 6px;
+    font-size: 14px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav-links a:hover {
+    color: var(--text);
+    opacity: 1;
+  }
+  .nav-cta {
+    background: var(--accent);
+    color: var(--bg) !important;
+    padding: 9px 18px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .nav-cta:hover {
+    background: var(--accent-hover);
+    color: var(--bg) !important;
+    opacity: 1;
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    margin: 5px 0;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    padding: 120px 24px 80px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    padding: 6px 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(0, 255, 0, 0.25);
+    border-radius: 4px;
+  }
+  .hero-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.2);
+  }
+  .hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -2.5px;
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-subtitle {
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 620px;
+    margin-bottom: 40px;
+    line-height: 1.55;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 22px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: all 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg) !important;
+  }
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    color: var(--bg) !important;
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text) !important;
+    border: 1px solid var(--border-strong);
+  }
+  .btn-secondary:hover {
+    background: var(--bg-elevated);
+    color: var(--text) !important;
+    opacity: 1;
+    border-color: var(--accent);
+  }
+  .btn .arrow {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* --- Sections --- */
+  section {
+    padding: 80px 24px;
+  }
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .section-lead {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    line-height: 1.55;
+    margin-bottom: 48px;
+  }
+
+  /* --- What we do --- */
+  .what-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .what-item {
+    padding: 28px 24px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+  }
+  .what-item:hover {
+    border-color: var(--border-strong);
+  }
+  .what-item .num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: block;
+    letter-spacing: 0.05em;
+  }
+  .what-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .what-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* --- Structure --- */
+  .levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .level-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .level-card:hover {
+    border-color: var(--border-strong);
+  }
+  .level-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .level-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.4px;
+  }
+  .level-tag {
+    display: inline-block;
+    color: var(--text-dim);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+  .level-desc {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .level-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+  .level-list li {
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .level-list li span {
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .level-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.02em;
+  }
+  .level-count.muted {
+    color: var(--text-dim);
+  }
+
+  /* --- Progression --- */
+  .progression {
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .prog-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 40px;
+  }
+  .prog-step {
+    background: var(--bg);
+    padding: 28px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .prog-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .prog-step h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .prog-step p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .prog-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+  }
+  .prog-note {
+    background: var(--bg);
+    border: 1px solid rgba(255, 46, 0, 0.3);
+    border-left: 3px solid var(--danger);
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin-top: 32px;
+  }
+  .prog-note h4 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .prog-note p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* --- Recruitment --- */
+  .positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+    margin-top: 40px;
+  }
+  .position {
+    background: var(--bg-elevated);
+    padding: 22px 22px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    transition: border-color 0.15s;
+  }
+  .position:hover {
+    border-color: var(--accent);
+  }
+  .position-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .position-tag.core {
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+  .position-tag.optional {
+    background: rgba(152, 147, 169, 0.12);
+    color: var(--text-muted);
+  }
+  .position h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+  }
+  .position p {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .recruit-timeline {
+    background: var(--bg-elevated);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .recruit-timeline h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .timeline-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .timeline-item {
+    padding: 14px 16px;
+    background: var(--bg);
+    border-radius: 6px;
+    border-left: 2px solid var(--accent);
+  }
+  .timeline-item .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .timeline-item .event {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  /* --- Form --- */
+  .form-wrap {
+    background: var(--bg-elevated);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .form-wrap h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.4px;
+  }
+  .form-wrap p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+  .form-placeholder {
+    background: var(--bg);
+    border: 1px dashed var(--border-strong);
+    padding: 48px 24px;
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-size: 14px;
+    text-align: center;
+  }
+  .form-placeholder strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .form-placeholder code {
+    background: var(--bg-elevated);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  /* --- Why join --- */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .why-item .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .why-item h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .why-item p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* --- FAQ --- */
+  .faq {
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-list {
+    max-width: 720px;
+    margin: 40px auto 0;
+  }
+  details {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  details:hover {
+    border-color: var(--border-strong);
+  }
+  details[open] {
+    border-color: var(--accent);
+  }
+  summary {
+    font-weight: 500;
+    font-size: 15.5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::after {
+    content: "+";
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 300;
+    transition: transform 0.2s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+  details p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    background: var(--bg);
+    padding: 60px 24px 32px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  .footer-brand h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .footer-brand h3::before {
+    content: "▲";
+    color: var(--accent);
+    margin-right: 6px;
+    font-size: 15px;
+  }
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .footer-col a {
+    display: block;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 4px 0;
+  }
+  .footer-col a:hover {
+    color: var(--text);
+    opacity: 1;
+  }
+  .footer-bottom {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 12.5px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      flex-direction: column;
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-toggle {
+      display: block;
+    }
+    .hero {
+      padding: 60px 24px 48px;
+    }
+    .hero-title {
+      font-size: 40px;
+      letter-spacing: -1.5px;
+    }
+    .hero-subtitle {
+      font-size: 17px;
+    }
+    section {
+      padding: 60px 20px;
+    }
+    .section-title {
+      font-size: 30px;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .prog-flow {
+      grid-template-columns: 1fr;
+    }
+    .prog-arrow {
+      transform: rotate(90deg);
+      padding: 8px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Banat IT</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#what">What we do</a>
+      <a href="#structure">Team</a>
+      <a href="#recruit">Open roles</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://bit.ly/BanatITOperationalTeam" target="_blank" rel="noopener" class="nav-cta">Apply</a>
+    </div>
+    <button class="nav-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-tag">Hiring · Operational Team · July 2026</div>
+  <h1 class="hero-title">
+    Help run the tech events that shape <em>Western Romania</em>.
+  </h1>
+  <p class="hero-subtitle">
+    Banat IT organizes HackTM, BIT BBQ, BegaTalks.AI, TechTable. We're bringing in 11 people to run the operational side for the next year. Applications open now.
+  </p>
+  <div class="hero-actions">
+    <a href="https://bit.ly/BanatITOperationalTeam" target="_blank" rel="noopener" class="btn btn-primary">Apply now <span class="arrow">→</span></a>
+    <a href="#recruit" class="btn btn-secondary">See open roles</a>
+  </div>
+</section>
+
+<!-- What we do -->
+<section id="what">
+  <div class="container">
+    <div class="section-eyebrow">// What we do</div>
+    <h2 class="section-title">Four events, one community, twelve years.</h2>
+    <p class="section-lead">
+      We're a non-profit running the community layer of the tech scene in Timisoara and the Banat region. Events, partnerships, a bit of policy work. We don't do consulting, we don't sell services. Everything we build is community-owned.
+    </p>
+    <div class="what-grid">
+      <div class="what-item">
+        <span class="num">// 01</span>
+        <h3>HackTM</h3>
+        <p>Hackathon, 12 editions, 400+ builders. May every year.</p>
+      </div>
+      <div class="what-item">
+        <span class="num">// 02</span>
+        <h3>BIT BBQ</h3>
+        <p>The end-of-summer gathering. 1,200+ people every September.</p>
+      </div>
+      <div class="what-item">
+        <span class="num">// 03</span>
+        <h3>BegaTalks.AI</h3>
+        <p>AI-focused talks and demos. Practitioners, not pundits.</p>
+      </div>
+      <div class="what-item">
+        <span class="num">// 04</span>
+        <h3>TechTable</h3>
+        <p>Peer roundtables for tech leads and founders. Small, focused.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Structure -->
+<section id="structure">
+  <div class="container">
+    <div class="section-eyebrow">// How we're organized</div>
+    <h2 class="section-title">Four levels. Everyone knows what they run.</h2>
+    <p class="section-lead">
+      No matrix org, no title inflation. Board sets direction. Executive Team runs the year. Operational Team owns the projects. Volunteers show up when it matters. That's it.
+    </p>
+
+    <div class="levels-grid">
+      <div class="level-card">
+        <div class="level-num">// L1</div>
+        <div class="level-name">Board</div>
+        <div class="level-tag">strategic · unpaid</div>
+        <p class="level-desc">
+          Sets the long-term direction. Approves the annual plan. Represents Banat IT with partners and institutions. Chaired by the President.
+        </p>
+        <div class="level-count muted">5+ members</div>
+      </div>
+
+      <div class="level-card">
+        <div class="level-num">// L2</div>
+        <div class="level-name">Executive Team</div>
+        <div class="level-tag">core · paid per project</div>
+        <p class="level-desc">
+          Runs the year. Compensation is project-based, not full-time salary. Each role coordinates a slice of the Operational Team.
+        </p>
+        <ul class="level-list">
+          <li>Project Manager <span>×2</span></li>
+          <li>Grants & Funding Officer</li>
+          <li>Communications</li>
+          <li>Creative Director</li>
+        </ul>
+        <div class="level-count muted">5 seats · no openings in 2026</div>
+      </div>
+
+      <div class="level-card">
+        <div class="level-num">// L3</div>
+        <div class="level-name">Operational Team</div>
+        <div class="level-tag">full-time · unpaid</div>
+        <p class="level-desc">
+          The people who actually run projects on the ground. This is the level we're hiring for now.
+        </p>
+        <ul class="level-list">
+          <li>PM roles per event <span>3</span></li>
+          <li>Design, brand, photo/video <span>3</span></li>
+          <li>Ops, volunteers, partnerships (×2) <span>5</span></li>
+        </ul>
+        <div class="level-count">11 seats · open now</div>
+      </div>
+
+      <div class="level-card">
+        <div class="level-num">// L4</div>
+        <div class="level-name">Volunteers</div>
+        <div class="level-tag">ad-hoc · event-based</div>
+        <p class="level-desc">
+          People who help at events without a fixed role. Sign up whenever you want.
+        </p>
+        <div class="level-count muted">always open</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Progression -->
+<section class="progression">
+  <div class="container">
+    <div class="section-eyebrow">// How you grow</div>
+    <h2 class="section-title">One path, no shortcuts.</h2>
+    <p class="section-lead">
+      We don't hire directly into Executive Team. You start where the work happens, and you move up if you're good and there's an opening.
+    </p>
+
+    <div class="prog-flow">
+      <div class="prog-step">
+        <div class="prog-step-num">// step 1</div>
+        <h4>Volunteer</h4>
+        <p>Show up at an event. See if it clicks. No commitment required.</p>
+      </div>
+      <div class="prog-arrow">→</div>
+      <div class="prog-step">
+        <div class="prog-step-num">// step 2</div>
+        <h4>Operational Team</h4>
+        <p>Apply and get selected. One-year mandate, renewable if you're doing well.</p>
+      </div>
+      <div class="prog-arrow">→</div>
+      <div class="prog-step">
+        <div class="prog-step-num">// step 3</div>
+        <h4>Executive Team</h4>
+        <p>Apply after at least one year in Operational. Two years preferred. Only when a seat opens.</p>
+      </div>
+    </div>
+
+    <div class="prog-note">
+      <h4>No Executive openings in 2026</h4>
+      <p>
+        Executive Team is fully staffed this year. The earliest new seats might open is 2027, and only if we can fund them. If you join Operational now, you're in a real path, not a promise.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Recruitment -->
+<section id="recruit">
+  <div class="container">
+    <div class="section-eyebrow">// Open now · Apply by July 31</div>
+    <h2 class="section-title">11 seats across 10 roles.</h2>
+    <p class="section-lead">
+      Everything here is unpaid, full-time volunteer work. Roughly 5-10 hours a week on normal weeks, more around events. If you can't commit that, apply for the volunteer pool instead.
+    </p>
+
+    <div class="positions-grid">
+      <div class="position">
+        <h4>PM BBQ</h4>
+        <p>Own the biggest event of the year. September 1, 2026.</p>
+      </div>
+      <div class="position">
+        <h4>Event Ops</h4>
+        <p>Run the floor during events. Real-time coordination.</p>
+      </div>
+      <div class="position">
+        <h4>Setup & Build</h4>
+        <p>On-site tech setup and problem-solving. Some scripting where useful.</p>
+      </div>
+      <div class="position">
+        <h4>Volunteers Coordinator</h4>
+        <p>Recruit and coordinate the volunteer pool through the year.</p>
+      </div>
+      <div class="position">
+        <h4>Design</h4>
+        <p>Visual identity across events. Handle print and digital work.</p>
+      </div>
+      <div class="position">
+        <h4>Brand Alchemist</h4>
+        <p>Copy, PR, tone-of-voice. Own how we sound.</p>
+      </div>
+      <div class="position">
+        <h4>Photo & Video</h4>
+        <p>Photo and video from events. Editing and delivery.</p>
+      </div>
+      <div class="position">
+        <h4>Partnerships <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-left: 6px;">×2</span></h4>
+        <p>Sponsor outreach, prospect research, follow-up on major sponsors, and small operational deals (food, logistics, small sponsors). Two people share this: one leans toward sponsor development, the other toward operational deals.</p>
+      </div>
+      <div class="position">
+        <h4>PM HackTM</h4>
+        <p>Own Banat IT's slice of HackTM 2027.</p>
+      </div>
+      <div class="position">
+        <h4>PM TechTable</h4>
+        <p>Run TechTable end to end, four editions a year.</p>
+      </div>
+    </div>
+
+    <div class="recruit-timeline">
+      <h3>Timeline</h3>
+      <div class="timeline-items">
+        <div class="timeline-item">
+          <div class="date">// July</div>
+          <div class="event">Applications and interviews</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">// August</div>
+          <div class="event">Onboarding, BBQ prep</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">// Sept 1</div>
+          <div class="event">BIT BBQ — first big event</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">// Sept-Dec</div>
+          <div class="event">Regular ops + evaluation</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">// July 2027</div>
+          <div class="event">Renewal or exit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-wrap" id="apply">
+      <h3>Apply</h3>
+      <p>About 8 minutes to fill out. We reply within 48 hours of submission.</p>
+      <div style="text-align: center; margin-top: 24px;">
+        <a href="https://bit.ly/BanatITOperationalTeam" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 15px; padding: 16px 32px;">
+          Open the application form <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why join -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">// Why bother</div>
+    <h2 class="section-title">Reasons that might make sense to you.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="num">// 01</div>
+        <h4>You'll actually run things</h4>
+        <p>Not a shadowing role. You own a slice of a real project and answer for it.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">// 02</div>
+        <h4>1,200 people in the room</h4>
+        <p>BBQ is one of the biggest tech gatherings in the region. You'll meet most of the ecosystem.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">// 03</div>
+        <h4>Work with the same people all year</h4>
+        <p>Small team, real relationships, consistent context. Not a series of one-off events.</p>
+      </div>
+      <div class="why-item">
+        <div class="num">// 04</div>
+        <h4>Clear path forward</h4>
+        <p>If you're good, there's a defined route to a paid Executive seat when one opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-eyebrow">// FAQ</div>
+    <h2 class="section-title">Straight answers.</h2>
+
+    <div class="faq-list">
+      <details>
+        <summary>Is this paid?</summary>
+        <p>No. Operational Team is unpaid, full-time volunteer work. Executive Team is paid, but you don't apply there directly. See the path above.</p>
+      </details>
+      <details>
+        <summary>How many hours a week?</summary>
+        <p>Around 5-8 hours in normal weeks, more around events. Event PMs can hit 15-20 hours in the two weeks before their event.</p>
+      </details>
+      <details>
+        <summary>When can I move to Executive?</summary>
+        <p>You can apply after one year in Operational. Two years is what we look for in practice. And only when a seat opens, which won't happen before 2027 at the earliest.</p>
+      </details>
+      <details>
+        <summary>What happens after the one-year mandate?</summary>
+        <p>Three options at the end of your mandate: we renew (you stay another year), you apply for Executive (if there's a seat), or you exit gracefully. Nothing is automatic in either direction.</p>
+      </details>
+      <details>
+        <summary>Do I need to work in tech?</summary>
+        <p>Not necessarily. We care about what you can do, not your job title. If you're strong in design, comms, event management, or ops, apply. If you're already in tech, even better for the tech-heavy roles.</p>
+      </details>
+      <details>
+        <summary>What if I don't get picked?</summary>
+        <p>You stay in the volunteer pool. You'll get invited to help at events, and you can apply again next year when we open partial recruitment.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Banat IT</h3>
+      <p>Non-profit running the community layer of the Western Romania tech scene. Timisoara, since 2014.</p>
+    </div>
+    <div class="footer-col">
+      <h4>// Navigate</h4>
+      <a href="#what">What we do</a>
+      <a href="#structure">Team</a>
+      <a href="#recruit">Open roles</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>// Contact</h4>
+      <a href="mailto:contact@banatit.ro">contact@banatit.ro</a>
+      <a href="https://banat.it" target="_blank" rel="noopener">banat.it</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Asociatia Banat IT</div>
+    <div>CIF 33826859 · Timisoara</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('nav-links').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

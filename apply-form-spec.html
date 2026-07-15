@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply to Banat IT - Form Spec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #18122D;
+    --bg-elevated: #201A38;
+    --bg-card: #251E40;
+    --text: #F8FAFF;
+    --text-muted: #9893A9;
+    --text-dim: #6B6580;
+    --accent: #00FF00;
+    --accent-glow: rgba(0, 255, 0, 0.15);
+    --danger: #FF2E00;
+    --border: rgba(152, 147, 169, 0.15);
+    --border-strong: rgba(152, 147, 169, 0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(248, 250, 255, 0.08); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(248, 250, 255, 0.2); }
+  * { scrollbar-width: thin; scrollbar-color: rgba(248, 250, 255, 0.08) transparent; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    padding: 48px 20px 80px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .top-note {
+    background: var(--bg-elevated);
+    border: 1px dashed var(--border-strong);
+    padding: 16px 20px;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
+  .top-note strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .header {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    margin-bottom: 12px;
+  }
+  .header p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .section {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .section-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 24px;
+  }
+
+  .field {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .field:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .field-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .field-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .field-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .required {
+    color: var(--accent);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  .optional {
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .field-hint {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .field-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  /* Input mockups */
+  .input {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 14px;
+    color: var(--text-dim);
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    width: 100%;
+    display: block;
+  }
+  .input.long {
+    min-height: 60px;
+    padding: 12px 14px;
+  }
+  .input-select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 14px;
+    color: var(--text-dim);
+    font-size: 13.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .input-select::after {
+    content: "▾";
+    color: var(--text-dim);
+  }
+
+  .choices {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 4px;
+  }
+  .choice {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 5px;
+    color: var(--text-muted);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .choice::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .choice.checkbox::before {
+    border-radius: 3px;
+  }
+
+  .file-input {
+    background: var(--bg);
+    border: 1px dashed var(--border-strong);
+    padding: 16px;
+    border-radius: 5px;
+    color: var(--text-dim);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .settings {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-top: 40px;
+  }
+  .settings h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+  .settings-list {
+    list-style: none;
+  }
+  .settings-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text-muted);
+    gap: 12px;
+  }
+  .settings-list li:last-child { border-bottom: none; }
+  .settings-list li strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .settings-list li span {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-align: right;
+    letter-spacing: 0.02em;
+  }
+
+  .post-submit {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin-top: 24px;
+  }
+  .post-submit h4 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .post-submit p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 24px 12px 60px; }
+    .header, .section, .settings {
+      padding: 20px;
+    }
+    .choices {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="top-note">
+  <strong>// Form spec preview</strong>
+  Visual reference for the Google Form Alecu builds. Copy each field into Google Forms. Not a functional form.
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1>Apply to the Banat IT Operational Team</h1>
+  <p>11 open seats, one-year mandate starting July 2026. Volunteer full-time, unpaid at this level. Roughly 5-10 hours a week, more around events. Takes about 8 minutes to complete. We reply within 48 hours.</p>
+</div>
+
+<!-- Section 1 — Contact -->
+<div class="section">
+  <div class="section-tag">// Section 1</div>
+  <h2 class="section-title">Contact</h2>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 01</span> <span class="field-title">Full name</span><span class="required">*</span></div>
+      <span class="optional">short text</span>
+    </div>
+    <div class="input">Your first and last name</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 02</span> <span class="field-title">Email</span><span class="required">*</span></div>
+      <span class="optional">email</span>
+    </div>
+    <div class="input">you@example.com</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 03</span> <span class="field-title">Phone</span><span class="required">*</span></div>
+      <span class="optional">short text</span>
+    </div>
+    <div class="input">+40...</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 04</span> <span class="field-title">City</span><span class="required">*</span></div>
+      <span class="optional">short text</span>
+    </div>
+    <div class="input">Where you live</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 05</span> <span class="field-title">LinkedIn or portfolio URL</span></div>
+      <span class="optional">optional · short text</span>
+    </div>
+    <div class="input">https://...</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 06</span> <span class="field-title">Age</span><span class="required">*</span></div>
+      <span class="optional">number</span>
+    </div>
+    <div class="input">18-99</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 07</span> <span class="field-title">What are you doing now?</span><span class="required">*</span></div>
+      <span class="optional">single choice</span>
+    </div>
+    <div class="choices">
+      <div class="choice">Student</div>
+      <div class="choice">Working in tech</div>
+      <div class="choice">Working outside tech</div>
+      <div class="choice">Freelance / independent</div>
+      <div class="choice">Founder / running something</div>
+      <div class="choice">Other</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2 — Which role -->
+<div class="section">
+  <div class="section-tag">// Section 2</div>
+  <h2 class="section-title">Which role</h2>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 08</span> <span class="field-title">First choice</span><span class="required">*</span></div>
+      <span class="optional">dropdown</span>
+    </div>
+    <div class="input-select"><span>Pick one of 11 roles</span></div>
+    <div class="field-hint" style="margin-top:10px;">
+      Options: PM BBQ · PM HackTM · PM TechTable · Event Ops · Setup & Build · Volunteers Coordinator · Design · Brand Alchemist · Photo & Video · Partnerships (2 seats available)
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 09</span> <span class="field-title">Second choice (if the first isn't available)</span></div>
+      <span class="optional">optional · dropdown</span>
+    </div>
+    <div class="input-select"><span>Same list + "No second choice"</span></div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 10</span> <span class="field-title">Why this role?</span><span class="required">*</span></div>
+      <span class="optional">long text</span>
+    </div>
+    <div class="field-hint">200-400 words. Be specific about what pulled you to this role.</div>
+    <div class="input long">What draws you to this role and what you'd bring to it</div>
+  </div>
+</div>
+
+<!-- Section 3 — Experience -->
+<div class="section">
+  <div class="section-tag">// Section 3</div>
+  <h2 class="section-title">Experience</h2>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 11</span> <span class="field-title">What have you done that's relevant to the role you picked?</span><span class="required">*</span></div>
+      <span class="optional">long text</span>
+    </div>
+    <div class="field-hint">Concrete examples work better than adjectives. Projects, events, side things, work you've shipped.</div>
+    <div class="input long">Projects, events, past work, side things</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 12</span> <span class="field-title">Where did you volunteer or lead something before?</span></div>
+      <span class="optional">optional · long text</span>
+    </div>
+    <div class="field-hint">Include the org, your role, roughly when.</div>
+    <div class="input long">Org, role, timeframe</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 13</span> <span class="field-title">Have you been to any Banat IT events?</span></div>
+      <span class="optional">optional · checkboxes</span>
+    </div>
+    <div class="choices">
+      <div class="choice checkbox">HackTM</div>
+      <div class="choice checkbox">BIT BBQ</div>
+      <div class="choice checkbox">BegaTalks.AI</div>
+      <div class="choice checkbox">TechTable</div>
+      <div class="choice checkbox">LeadIT</div>
+      <div class="choice checkbox">Business BITes</div>
+      <div class="choice checkbox">Never been</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 14</span> <span class="field-title">CV upload</span></div>
+      <span class="optional">optional · file upload</span>
+    </div>
+    <div class="file-input">PDF, max 10 MB</div>
+  </div>
+</div>
+
+<!-- Section 4 — Commitment -->
+<div class="section">
+  <div class="section-tag">// Section 4</div>
+  <h2 class="section-title">Commitment</h2>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 15</span> <span class="field-title">How many hours a week can you actually give this?</span><span class="required">*</span></div>
+      <span class="optional">single choice</span>
+    </div>
+    <div class="choices">
+      <div class="choice">3-5</div>
+      <div class="choice">5-8</div>
+      <div class="choice">8-12</div>
+      <div class="choice">12+</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 16</span> <span class="field-title">Weekends around big events (BBQ, HackTM), can you commit?</span><span class="required">*</span></div>
+      <span class="optional">single choice</span>
+    </div>
+    <div class="choices">
+      <div class="choice">Yes, without exception</div>
+      <div class="choice">Usually yes</div>
+      <div class="choice">Occasionally</div>
+      <div class="choice">Rarely</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 17</span> <span class="field-title">Earliest start date</span><span class="required">*</span></div>
+      <span class="optional">date picker</span>
+    </div>
+    <div class="input">YYYY-MM-DD</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 18</span> <span class="field-title">Anything else you want us to know?</span></div>
+      <span class="optional">optional · long text</span>
+    </div>
+    <div class="input long">Whatever else feels relevant</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">
+      <div><span class="field-num">// 19</span> <span class="field-title">How did you hear about this?</span><span class="required">*</span></div>
+      <span class="optional">single choice</span>
+    </div>
+    <div class="choices">
+      <div class="choice">Banat IT social media</div>
+      <div class="choice">Liga AC</div>
+      <div class="choice">A friend or colleague</div>
+      <div class="choice">team.banat.it landing page</div>
+      <div class="choice">Google search</div>
+      <div class="choice">Other</div>
+    </div>
+  </div>
+</div>
+
+<!-- Post-submit message -->
+<div class="post-submit">
+  <h4>// Post-submit message</h4>
+  <p>
+    Thanks. Your application landed with the right person on our team. We'll get back within 48 working hours. Meanwhile you can follow us on LinkedIn or check what we're up to on banat.it.
+  </p>
+</div>
+
+<!-- Settings -->
+<div class="settings">
+  <h3>// Form settings (Google Forms)</h3>
+  <ul class="settings-list">
+    <li><strong>Collect emails</strong> <span>on</span></li>
+    <li><strong>Limit to one response per person</strong> <span>off</span></li>
+    <li><strong>Response destination</strong> <span>new sheet</span></li>
+    <li><strong>Sheet name</strong> <span>Banat IT - Operational Recruitment 2026</span></li>
+    <li><strong>Email on submission</strong> <span>Alecu + Dan</span></li>
+    <li><strong>Auto-reply to applicant</strong> <span>on</span></li>
+    <li><strong>Embed width × height</strong> <span>700 × 900</span></li>
+    <li><strong>Application deadline</strong> <span>July 31, 2026</span></li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>
